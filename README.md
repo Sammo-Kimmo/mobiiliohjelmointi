@@ -1,6 +1,6 @@
-# mobiiliohjelmointi
+# Mobiiliohjelmointi
 
-Mobiiliohjelmointi (syksy 2020), harjoitustehtävät
+Harjoitustehtävät (syksy 2020)
 
 - Tehtävä 1: [Calculator](/calculator/App.js)
 - Tehtävä 2: [Number guessing game](/number_guessing_game/App.js)
@@ -18,3 +18,4 @@ Mobiiliohjelmointi (syksy 2020), harjoitustehtävät
 - Tehtävä 14: [Text to Speech] (/text_to_speech/App.js)
 - Tehtävä 14: [Shopping List with Native Elements] (/shopping_list_with_ne/App.js)
 - Tehtävä 15: [My places App](/my_places_app/App.js)
+- Projekti:
