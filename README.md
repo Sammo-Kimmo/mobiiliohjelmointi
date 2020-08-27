@@ -17,6 +17,6 @@ Harjoitustehtävät (syksy 2020)
 - Tehtävä 12: [Shopping list with a Firebase](/shopping_list_with_fb/App.js)
 - Tehtävä 13: [Contacts](/contacts/App.js)
 - Tehtävä 14: [Text to Speech](/text_to_speech/App.js)
-- Tehtävä 14: [Shopping List with Native Elements](/shopping_list_with_ne/App.js)
-- Tehtävä 15: [My places App](/my_places_app/App.js)
+- Tehtävä 15: [Shopping List with Native Elements](/shopping_list_with_ne/App.js)
+- Tehtävä 16: [My places App](/my_places_app/App.js)
 - Projekti:
