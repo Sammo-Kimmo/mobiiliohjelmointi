@@ -1,28 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useReducer, useState } from 'react';
+import React, { useReducer } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, FlatList } from 'react-native';
 
 export default function App() {
-  const initialValues = {listItems: [], addItem:""};
+  const initialValues = { listItems: [], addItem: "" };
 
-  function shoppingList(shopItems, action){
-    switch(action.type){
+  function shoppingList(shopItems, action) {
+    switch (action.type) {
       case 'addItem':
-        return {...shopItems, addItem: action.addItem};
+        return { ...shopItems, addItem: action.addItem };
       case 'add':
         var items = [...shopItems.listItems];
-        items.push({key: action.shopItem});
-        return {...shopItems, listItems: items};
+        items.push({ key: action.shopItem });
+        return { ...shopItems, listItems: items };
       case 'reset':
         return initialValues;
     }
   }
-  const[shopItems, setShopItems] = useReducer(shoppingList, []);
+  const [shopItems, setShopItems] = useReducer(shoppingList, initialValues);
   return (
     <View style={styles.container}>
-       <Text>Shopping List</Text>
-          <Text>Add some Shopping Items</Text>
-        <TextInput  style={styles.textInput} onChangeText={input => setShopItems({type: 'addItem', addItem: input})}  value={shopItems.addItem} />
+      <Text>Shopping List</Text>
+      <Text>Add some Shopping Items</Text>
+      <TextInput autofocus={true} style={styles.textInput} onChangeText={input => setShopItems({ type: 'addItem', addItem: input })} value={shopItems.addItem} />
 
       <View style={styles.btnContainer}>
         <Button title="add" onPress={() => setShopItems({ type: 'add', shopItem: shopItems.addItem })}></Button>
@@ -40,44 +40,44 @@ export default function App() {
       />
 
 
-    <StatusBar style="auto" />
-  </View>
-);
+      <StatusBar style="auto" />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-container: {
-  flex: 1,
-  backgroundColor: '#fff',
-  alignItems: 'center',
-  justifyContent: 'center',
-  paddingTop: 200,
-},
-btnContainer: {
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  width: 120,
-  margin: 6,
-},
-textInput: {
-  height: 20,
-  width: 40,
-  borderBottomColor: 'black',
-  borderBottomWidth: 1,
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 200,
+  },
+  btnContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: 120,
+    margin: 6,
+  },
+  textInput: {
+    height: 20,
+    width: 200,
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
 
-},
-inputRow: {
-  flexDirection: 'row',
-  justifyContent: 'space-around',
-  width: 180,
-  margin: 10,
-},
-calcContainer: {
-  paddingTop: 400,
-},
-histContainer: {
+  },
+  inputRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: 180,
+    margin: 10,
+  },
+  calcContainer: {
+    paddingTop: 400,
+  },
+  histContainer: {
 
-}
+  }
 
 
 });
