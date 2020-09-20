@@ -18,16 +18,13 @@ export default function App() {
     } catch (e) {
       setResults[{ title: "No connection" }]
     }
-
-
   }
 
   return (
     <View style={styles.container}>
       <StatusBar hidden={true} />
-      <Text style={{fontSize: 20, marginBottom: 10}}>Find Recipes</Text>
+      <Text style={{ fontSize: 20, marginBottom: 10 }}>Find Recipes</Text>
       <View style={styles.row}>
-        
         <TextInput
           style={{ width: 280, }}
           placeholder="Search by Ingredient, eg. tomato"
@@ -37,7 +34,6 @@ export default function App() {
         <Button title="Find" onPress={() => getRecipes(searchWord)} />
         <Button title="Reset" onPress={() => setSearchWord("")} color="green" />
       </View>
-
       <FlatList
         data={results}
         keyExtractor={(item, index) => index.toString()}
@@ -50,7 +46,6 @@ export default function App() {
             <Text style={{ margin: 10, width: 300 }}>{item.title.replace(/\n|\r/g, '').trim()}</Text>
           </View>}
       />
-
       <StatusBar style="auto" />
     </View>
   );
