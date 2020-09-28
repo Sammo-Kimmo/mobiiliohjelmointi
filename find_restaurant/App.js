@@ -5,9 +5,6 @@ import MapView, { Callout, Marker } from 'react-native-maps';
 
 export default function App() {
   const [street, setStreet] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('Finland');
-
   const [regionPosition, setRegionPosition] = useState({
     lat: 60.166628,
     lng: 24.943508,
@@ -16,9 +13,7 @@ export default function App() {
   const [restaurants, setRestaurants] = useState()
 
   async function getRestaurants() {
-
     const url = `http://www.mapquestapi.com/geocoding/v1/address?key=0pGleZQXBbZAnWGKh6R2BMTTRIaRfRo1&location=${(street).replace(' ', '+')}+Helsinki+Finland`;
-
     try {
       const fetched = await fetch(url);
       const fetchedJson = await fetched.json();
@@ -28,9 +23,7 @@ export default function App() {
       const fetchedRestaurants = await fetch(url2);
       const fetchedRestaurantsJson = await fetchedRestaurants.json();
       setRestaurants(fetchedRestaurantsJson.data);
-
     } catch (e) { }
-
   }
 
   return (
@@ -38,7 +31,6 @@ export default function App() {
       <Text style={{ margin: 10, fontWeight: "bold" }}> Find a nearby restaurant in Helsinki</Text>
       <MapView
         style={styles.mapStyle}
-
         region={{
           latitude: regionPosition.lat,
           longitude: regionPosition.lng,
@@ -58,11 +50,9 @@ export default function App() {
               <Text style={{ width: 300, margin: 10 }}>{r.description.body}</Text>
               <Text >{r.info_url}</Text>
             </Callout>
-
           </Marker>
         )
         ) : <></>}
-
       </MapView>
       <View style={{ flexDirection: "row", padding: 4, alignItems: "center" }}>
         <View style={{ flexDirectioin: "column", padding: 4 }}>
@@ -75,7 +65,7 @@ export default function App() {
         <Pressable style={styles.showButton} onPress={() => getRestaurants()} >
           <Text style={styles.buttonText} >Show restaurants</Text>
         </Pressable>
-        <TextInput style={{width: 25}} placeholder="distance" onChangeText={value => setRestaurantDistance(value)} value={restaurantDistance} />
+        <TextInput style={{ width: 25 }} placeholder="distance" onChangeText={value => setRestaurantDistance(value)} value={restaurantDistance} />
         <Text>Km</Text>
       </View>
       <StatusBar style="auto" />

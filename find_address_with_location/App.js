@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect, useState } from 'react';
-import { Alert, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
 
@@ -9,7 +9,6 @@ export default function App() {
   const [address, setAddress] = useState();
   async function getMyLocation() {
     await Location.requestPermissionsAsync();
-
     try {
       let location = await Location.getCurrentPositionAsync({});
       const url = `http://www.mapquestapi.com/geocoding/v1/reverse?key=0pGleZQXBbZAnWGKh6R2BMTTRIaRfRo1&location=${location.coords.latitude},${location.coords.longitude}&includeRoadMetadata=true&includeNearestIntersection=true`
