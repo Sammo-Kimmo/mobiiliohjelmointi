@@ -23,7 +23,7 @@ export default function App() {
       const fetchedJson = await fetched.json();
       if (fetchedJson.success) {
         setCurrencies(fetchedJson.rates);
-      } else { Alert.alert("Daily amount of searches exceeded.") }
+      } else { Alert.alert(fetchedJson.error.info) }
     } catch (e) { }
   }
   useEffect(() => {
