@@ -13,7 +13,6 @@ export default function App() {
     db.transaction(tx => {
       tx.executeSql('select * from shoppingItem', [], (_, { rows }) => {
         setShoppingList(rows._array);
-        console.log(rows.length);
       });
     })
   }
@@ -30,7 +29,7 @@ export default function App() {
   }
 
   function add() {
-    console.log(shopItem, amount);
+
     db.transaction(tx => {
       tx.executeSql('insert into shoppingItem (product, amount) values (?,?);', [shopItem, amount]);
     }, null, () => updateList());
@@ -47,7 +46,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={{fontWeight: "bold"}}>Shopping List</Text>
+      <Text style={{ fontWeight: "bold" }}>Shopping List</Text>
       <Text>Add some Shopping Items</Text>
       <TextInput placeholder="Product" autofocus={true} style={styles.textInput} onChangeText={input => setShopItem(input)} value={shopItem} />
       <TextInput placeholder="Amount" style={styles.textInput} onChangeText={input => setAmount(input)} value={amount} />
